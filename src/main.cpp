@@ -18,17 +18,22 @@ void Update() {
   Vector2f move;
   if (Keyboard::isKeyPressed(Keyboard::Left)) {
     move.x--;
+	std::cout << sprite.getPosition().x << "\n";
   }
   if (Keyboard::isKeyPressed(Keyboard::Right)) {
     move.x++;
+	std::cout << sprite.getPosition().x << "\n";
   }
   sprite.move(move*300.0f*dt);
 }
 
-void Render(RenderWindow &window) { window.draw(sprite); }
+void Render(RenderWindow &window) 
+{ 
+	window.draw(sprite); 
+}
 
 int main() {
-  RenderWindow window(VideoMode(400, 400), "SFML works!");
+  RenderWindow window(VideoMode(500, 400), "SFML works!");
 
   try {
     Load();
@@ -39,6 +44,7 @@ int main() {
 
   sprite.setTexture(texture);
   sprite.setScale(Vector2f(2.f, 2.f));
+  sprite.setPosition(((window.getSize().x) / 2), 0);
 
   while (window.isOpen()) {
     Event event;

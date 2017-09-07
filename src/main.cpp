@@ -6,22 +6,43 @@ using namespace sf;
 
 Texture texture;
 Sprite sprite;
+float thresholdBound = 50.0f;
+
 void Load() {
   if (!texture.loadFromFile("res/img/spaceship1.png")) {
     throw std::invalid_argument("Loading error!");
   }
 }
 
-void Update() {
+void Update(sf::RenderWindow& window) {
   static sf::Clock clock;
   float dt = clock.restart().asSeconds();
   Vector2f move;
+  float left = 0.0f + thresholdBound; //useless, but shows the meaning of the threshold
+  float right = window.getSize().x - thresholdBound;
+
   if (Keyboard::isKeyPressed(Keyboard::Left)) {
-    move.x--;
+	  if (sprite.getPosition().x <= left)
+	  {
+		  sprite.setPosition(left, sprite.getPosition().y);
+	  }
+	  else
+	  {
+		  move.x--;
+	  }
+    
 	std::cout << sprite.getPosition().x << "\n";
   }
   if (Keyboard::isKeyPressed(Keyboard::Right)) {
-    move.x++;
+	  if (sprite.getPosition().x >= right)
+	  {
+		  sprite.setPosition(right, sprite.getPosition().y);
+	  }
+	  else
+	  {
+		  move.x++;
+	  }
+    
 	std::cout << sprite.getPosition().x << "\n";
   }
   sprite.move(move*300.0f*dt);
@@ -33,7 +54,7 @@ void Render(RenderWindow &window)
 }
 
 int main() {
-  RenderWindow window(VideoMode(500, 400), "SFML works!");
+  RenderWindow window(VideoMode(400, 400), "Cat Invaders");
 
   try {
     Load();
@@ -42,9 +63,18 @@ int main() {
     return 1;
   }
 
+  sf::Vector2u size = window.getSize();
+  unsigned int width = size.x;
+  unsigned int height = size.y;
+
   sprite.setTexture(texture);
   sprite.setScale(Vector2f(2.f, 2.f));
-  sprite.setPosition(((window.getSize().x) / 2), 0);
+
+  sf::FloatRect spriteBound = sprite.getLocalBounds();
+  sprite.setOrigin(spriteBound.left + spriteBound.width / 2.0f,
+				   spriteBound.top + spriteBound.height / 2.0f);
+  sprite.setPosition(sf::Vector2f(width / 2.0f, height - thresholdBound));
+
 
   while (window.isOpen()) {
     Event event;
@@ -58,7 +88,7 @@ int main() {
     }
 
     window.clear();
-    Update();
+    Update(window);
     Render(window);
     window.display();
   }

@@ -1,10 +1,25 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdexcept>
+#include <GameState.hpp>
+//using namespace sf;
 
-using namespace sf;
 
-Texture texture;
+
+int main()
+{
+	try
+	{
+		GameState::initialize();
+	}
+	catch (std::exception& ex)
+	{
+		std::cout << ex.what() << std::endl;
+	}
+	return 0;
+}
+
+/*Texture texture;
 Sprite sprite;
 float thresholdBound = 50.0f;
 
@@ -94,4 +109,4 @@ int main() {
   }
 
   return 0;
-}
+}*/

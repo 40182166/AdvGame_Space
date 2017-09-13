@@ -1,4 +1,9 @@
 #pragma once
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <stdexcept>
+
+using namespace sf;
 
 class GameState
 {
@@ -7,8 +12,9 @@ public:
 	~GameState();
 
 	static void initialize();
-	//static void setState(String setState);
+	static void Start();
 	static bool isFullScreen;
+	static bool isExiting();
 
 	
 	static void menu();
@@ -20,14 +26,16 @@ public:
 
 	enum States
 	{
+		s_uninitialized,
 		s_menu,
-		s_play/*,
+		s_play,
+		s_exit/*,
 		s_pause,
 		s_win,
 		s_lose*/
 	};
-
+	static sf::RenderWindow window;
 	static void running();
-	static enum States changeState(GameState::States);
+	static States currentState;
 };
 

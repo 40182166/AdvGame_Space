@@ -4,10 +4,12 @@
 #include "MainMenu.hpp"
 #include "GameState.hpp"
 
-
+bool MainMenu::isPlaying = false;
 
 void MainMenu::showMenu(sf::RenderWindow &window)
 {
+
+
 	sf::Texture backgroundTexture;
 	sf::Sprite background;
 	backgroundTexture.loadFromFile("res/img/backgroundMenu.jpg");
@@ -102,7 +104,7 @@ void MainMenu::InputHandler(sf::RenderWindow & window)
 				buttonsTexture[indexSelection].loadFromFile("res/img/play_on.png");
 				window.draw(buttons[indexSelection]);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return)) {
-					GameState::changeState(GameState::States::s_play);
+					GameState::currentState = GameState::States::s_play;
 				}
 				
 				break;

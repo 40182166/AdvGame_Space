@@ -14,6 +14,7 @@ public:
 		s_score,
 		s_exit
 	};
+	static bool isPlaying;
 
 private:
 	std::vector<sf::Sprite> buttons;

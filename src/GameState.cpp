@@ -7,11 +7,17 @@
 #include <stdexcept>
 
 using namespace sf;
-RenderWindow window(VideoMode(1280, 720), "Cat Invaders", sf::Style::Close);
+
+RenderWindow GameState::window;
+GameState::States GameState::currentState = s_uninitialized;
 bool GameState::isFullScreen = true;
 MainMenu main;
 Play game; 
-Player playMe;
+Player _player;
+
+Texture texturetry;
+Sprite playertry;
+float thresholdBoundtry = 50.0f;
 
 GameState::GameState()
 {
@@ -20,6 +26,19 @@ GameState::GameState()
 
 GameState::~GameState()
 {
+}
+
+void GameState::Start()
+{
+	if (currentState != s_uninitialized)
+		return;
+	window.create(VideoMode(1280, 720), "Cat Invaders", sf::Style::Close);
+	currentState = GameState::s_menu;
+	while (!isExiting())
+	{
+		initialize();
+	}
+	window.close();
 }
 
 void GameState::initialize()
@@ -60,10 +79,12 @@ void GameState::initialize()
 }
 
 
+
+
 void GameState::running()
 {
 
-	switch (changeState(s_play))
+	switch (currentState)
 	{
 		case s_menu:
 			menu();
@@ -78,10 +99,6 @@ void GameState::running()
 	}
 }
 
-GameState::States GameState::changeState(GameState::States state)
-{
-	return state;
-}
 
 
 
@@ -93,9 +110,16 @@ void GameState::menu()
 
 void GameState::play()
 {
-	//game.StartGame(window);
-	playMe.CreateShip(5, window);
+	game.StartGame(window);
 }
 
+
+bool GameState::isExiting()
+{
+	if (currentState == GameState::s_exit)
+		return true;
+	else
+		return false;
+}
 
 

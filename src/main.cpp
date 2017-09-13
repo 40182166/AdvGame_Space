@@ -10,7 +10,7 @@ int main()
 {
 	try
 	{
-		GameState::initialize();
+		GameState::Start();
 	}
 	catch (std::exception& ex)
 	{

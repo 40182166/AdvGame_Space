@@ -11,7 +11,7 @@ public:
 	~PowerupFireRate();
 
 	int life = 1;
-	float movementSpeed = 0.7f;
+	float movementSpeed = 0.6f;
 
 	bool picked = false;
 

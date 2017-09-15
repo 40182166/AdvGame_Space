@@ -809,12 +809,12 @@ void GameState::lose()
 
 	window.draw(backToMain);
 
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 2) && GameState::isJoysticConnected == true) {
+		
 		mainMusic.play();
 		mainMusic.setLoop(true);
 		initialScore.open("res/scores.txt", std::ios_base::app | std::ios_base::out);
 		initialScore << _player.score << "\n";
-
 		currentState = GameState::s_exit;
 	}
 

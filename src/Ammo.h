@@ -9,9 +9,9 @@ public:
 	Ammo();
 	~Ammo();
 
-	float movementSpeed = 5.0f;
+	float movementSpeed = 2.0f;
 	bool collided = false;
-	int lastingMax = 300;
+	int lastingMax = 1000;
 	int lasting = 0;
 
 	void shooted();

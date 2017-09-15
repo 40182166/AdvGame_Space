@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Audio.hpp>
 #include "Menu.hpp"
 
 class MainMenu : public Menu
@@ -8,12 +8,8 @@ class MainMenu : public Menu
 public:
 	virtual void showMenu(sf::RenderWindow& window);
 	virtual void InputHandler(sf::RenderWindow &window);
-	virtual enum options
-	{
-		s_play,
-		s_score,
-		s_exit
-	};
+	void showHighScore(sf::RenderWindow &window);
+
 	static bool isPlaying;
 
 private:
@@ -21,6 +17,7 @@ private:
 	std::vector<sf::Texture> buttonsTexture;
 	const int NUM_BUTTONS = 3;
 	int indexSelection = 0;
+	
 
 };
 

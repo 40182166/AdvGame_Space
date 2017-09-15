@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <stdexcept>
+#include "Play.hpp"
+#include "Player.hpp"
 
 class Play
 {
@@ -9,7 +11,8 @@ public:
 	Play();
 	~Play();
 
-	static void StartGame(sf::RenderWindow& window);
+	void StartGame(sf::RenderWindow& window, Player thisPlayer);
+
 
 };
 

@@ -1,7 +1,7 @@
 #include "Play.hpp"
 #include "Player.hpp"
 
-Player player;
+//Player player;
 
 Play::Play()
 {
@@ -12,10 +12,14 @@ Play::~Play()
 {
 }
 
-void Play::StartGame(sf::RenderWindow& window)
+void Play::StartGame(sf::RenderWindow& window, Player thisPlayer)
 {
+	/*player = thisPlayer;
 	
-	player.CreateShip(5, window);
+	player.DrawShip(window);*/
 }
+
+
+
 
 

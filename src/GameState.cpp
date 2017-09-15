@@ -352,13 +352,13 @@ void GameState::play()
 		waveNumber++;
 		enemy1.life += 2;
 		enemy2.life += 2;
-		enemy1.movementSpeed += 0.5f;
-		enemy2.movementSpeed += 0.5f;
+		enemy1.movementSpeed += 0.2f;
+		enemy2.movementSpeed += 0.2f;
 		_player.movementSpeed += 50.0f;
 		enemy1.attackDamage += 1;
 		enemy2.attackDamage += 1;
-		powerFire.movementSpeed += 0.2f;
-		powerLife.movementSpeed += 0.2f;
+		powerFire.movementSpeed += 0.1f;
+		powerLife.movementSpeed += 0.1f;
 
 	}
 

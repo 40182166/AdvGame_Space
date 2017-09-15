@@ -11,7 +11,7 @@ public:
 	~PowerupLife();
 
 	int life = 1;
-	float movementSpeed = 2.0f;
+	float movementSpeed = 0.7f;
 
 	bool picked = false;
 

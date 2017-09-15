@@ -11,7 +11,7 @@ public:
 	~Enemy2();
 
 	int life = 4;
-	float movementSpeed = 1.0f;
+	float movementSpeed = 0.6f;
 	int attackDamage = 2;
 	bool dead = false;
 

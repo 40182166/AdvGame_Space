@@ -168,11 +168,13 @@ void GameState::initialize()
 				if (isFullScreen)
 				{
 					window.create(VideoMode::getDesktopMode(), "Cat Invaders", sf::Style::Close);
+					sf::sleep(sf::seconds(0.3));
 					isFullScreen = false;
 				}
 				else
 				{
 					window.create(VideoMode::getDesktopMode(), "Cat Invaders", sf::Style::Fullscreen);
+					sf::sleep(sf::seconds(0.3));
 					isFullScreen = true;
 				}
 			}
@@ -190,11 +192,13 @@ void GameState::initialize()
 					if (isFullScreen)
 					{
 						window.create(VideoMode::getDesktopMode(), "Cat Invaders", sf::Style::Close);
+						sf::sleep(sf::seconds(0.3));
 						isFullScreen = false;
 					}
 					else
 					{
 						window.create(VideoMode::getDesktopMode(), "Cat Invaders", sf::Style::Fullscreen);
+						sf::sleep(sf::seconds(0.3));
 						isFullScreen = true;
 					}
 					break;

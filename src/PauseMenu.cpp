@@ -137,6 +137,7 @@ void PauseMenu::InputHandler(sf::RenderWindow & window)
 		buttonsTexturePause[indexSelectionPause].loadFromFile("res/img/resume_on.png");
 		window.draw(buttonsPause[indexSelectionPause]);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+			sf::sleep(sf::seconds(0.3));
 			GameState::currentState = GameState::States::s_play;
 			isSaved = false;
 		}
@@ -147,6 +148,7 @@ void PauseMenu::InputHandler(sf::RenderWindow & window)
 		buttonsTexturePause[indexSelectionPause].loadFromFile("res/img/exit_on.png");
 		window.draw(buttonsPause[indexSelectionPause]);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+			sf::sleep(sf::seconds(0.3));
 			isSaved = false;
 			GameState::currentState = GameState::States::s_save;
 		}
@@ -272,7 +274,7 @@ void PauseMenu::saveScore(sf::RenderWindow & window, int score)
 		buttonsTextureSave[indexSelectionSave].loadFromFile("res/img/yes_on.png");
 		window.draw(buttonsSave[indexSelectionSave]);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
-
+			sf::sleep(sf::seconds(0.3));
 			scoreFile.open("res/scores.txt", std::ios_base::app | std::ios_base::out);
 			scoreFile << score << "\n";
 			scoreFile.close();
@@ -286,6 +288,7 @@ void PauseMenu::saveScore(sf::RenderWindow & window, int score)
 		buttonsTextureSave[indexSelectionSave].loadFromFile("res/img/no_on.png");
 		window.draw(buttonsSave[indexSelectionSave]);
 		if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+			sf::sleep(sf::seconds(0.3));
 			GameState::currentState = GameState::States::s_exit;
 		}
 		break;

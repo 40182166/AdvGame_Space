@@ -130,6 +130,7 @@ void MainMenu::InputHandler(sf::RenderWindow & window)
 				buttonsTexture[indexSelection].loadFromFile("res/img/play_on.png");
 				window.draw(buttons[indexSelection]);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+					sf::sleep(sf::seconds(0.3));
 					GameState::currentState = GameState::States::s_play;
 				}
 				
@@ -138,6 +139,7 @@ void MainMenu::InputHandler(sf::RenderWindow & window)
 				buttonsTexture[indexSelection].loadFromFile("res/img/score_on.png");
 				window.draw(buttons[indexSelection]);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+					sf::sleep(sf::seconds(0.3));
 					GameState::currentState = GameState::States::s_score;
 				}
 				break;
@@ -145,6 +147,7 @@ void MainMenu::InputHandler(sf::RenderWindow & window)
 				buttonsTexture[indexSelection].loadFromFile("res/img/exit_on.png");
 				window.draw(buttons[indexSelection]);
 				if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+					sf::sleep(sf::seconds(0.3));
 					GameState::currentState = GameState::States::s_exit;
 				}
 				break;
@@ -244,6 +247,7 @@ void MainMenu::showHighScore(sf::RenderWindow & window)
 	}
 
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Return) || Joystick::isButtonPressed(0, 1) && GameState::isJoysticConnected == true) {
+		sf::sleep(sf::seconds(0.3));
 		GameState::currentState = GameState::States::s_menu;
 	}
 
